@@ -1,0 +1,4 @@
+www/ssl/*.pem
+www/ssl/*.key
+www/ssl/*.crt
+www/ssl/*.cer
