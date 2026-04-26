@@ -62,6 +62,8 @@ docker rm -f web
 - HTTP 会自动跳转到 HTTPS
 - nginx 会拒绝外部访问 `ssl` 目录
 - 启动前请先准备好证书文件
+- `php-fpm` 已开启慢请求日志和请求超时保护，日志可通过 `docker logs web` 查看
+- 当某个 PHP 请求长时间阻塞时，30 秒会输出 slowlog，600 秒仍未结束会被 `php-fpm` 强制回收，避免 worker 一直被占住
 
 ## GitHub Actions
 
