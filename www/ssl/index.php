@@ -654,10 +654,9 @@ if ((isset($_SESSION[FM_SESSION_ID]['logged'], $auth_users[$_SESSION[FM_SESSION_
 
         if ($success) {
             $target_file = strtok(get_file_path(), '?');
-            // 使用 copy+unlink 替代 rename，copy 会创建新文件(0644权限)
-            $success = copy($temp_file, $target_file);
+            $success = rename($temp_file, $target_file);
             if ($success) {
-                @unlink($temp_file);
+                chmod($target_file, 0644);
             }
         }
 
